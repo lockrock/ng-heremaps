@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { NgHeremapsModule } from 'projects/ng-heremaps/src/public_api';
+
 
 import { AppComponent } from './app.component';
+import { CONFIG } from './here-maps.conf';
+import { NgHeremapsModule, } from 'ng-heremaps';
 
 @NgModule({
   declarations: [
@@ -11,9 +14,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgHeremapsModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'HereMapsConfig', useValue: CONFIG },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

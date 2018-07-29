@@ -1,1 +1,16 @@
-<lib-ng-heremaps></lib-ng-heremaps>
+<section style="width: 400px; height: 400px;">
+  <select #layer [(ngModel)]="currVal.currLayer">
+      <option *ngFor="let l of layers" [value]="l" >{{l}}</option>
+  </select>
+  <select #type [(ngModel)]="currVal.currType" >
+      <option *ngFor="let t of types" [value]="t" >{{t}}</option>
+  </select>
+  <span>{{currVal.currZoom}}</span>
+  <span>{{currVal.currCenter}}</span>
+  <ng-heremaps
+      [mapLayer]="currVal.currLayer"
+      [mapType]="currVal.currType" 
+      [(zoom)]="currVal.currZoom"
+      [(center)]="currVal.currCenter"
+      ></ng-heremaps>
+</section>
