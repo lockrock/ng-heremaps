@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ng-heremaps": {
+      "root": "projects/ng-heremaps",
+      "sourceRoot": "projects/ng-heremaps/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-heremaps/tsconfig.lib.json",
+            "project": "projects/ng-heremaps/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-heremaps/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-heremaps/src/test.ts",
+            "tsConfig": "projects/ng-heremaps/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-heremaps/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-heremaps/tsconfig.lib.json",
+              "projects/ng-heremaps/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-heremaps-component"
